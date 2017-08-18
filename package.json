@@ -1,0 +1,23 @@
+{
+  "name": "gitx",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "jasmine"
+  },
+  "author": "georgeflug",
+  "license": "MIT",
+  "dependencies": {
+    "es6-promisify": "5.0.0",
+    "mz": "2.6.0",
+    "yargs": "8.0.2",
+    "yargs-promise": "1.1.0"
+  },
+  "devDependencies": {
+    "jasmine": "2.7.0",
+    "mocha": "3.5.0",
+    "must": "0.13.4",
+    "rimraf": "2.6.1"
+  }
+}
