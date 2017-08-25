@@ -12,7 +12,7 @@ const aliases = [
   {
     command: 'undo',
     describe: 'Undo the last commit',
-    alias: 'reset HEAD~'
+    alias: 'reset --soft HEAD~1'
   }
 ];
 

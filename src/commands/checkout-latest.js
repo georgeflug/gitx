@@ -8,8 +8,8 @@ async function checkPull(argv) {
 }
 
 module.exports = {
-  command: 'checkPull <branch>',
-  aliases: ['checkpull', 'check-pull'],
+  command: 'checkoutLatest <branch>',
+  aliases: ['checkoutlatest', 'checkout-latest'],
   describe: 'Checkout [branch] and pull the latest changes',
   handler: checkPull
 };

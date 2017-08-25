@@ -9,6 +9,7 @@ async function interactiveCheckout() {
   const selection = await searchList.prompt(parsedBranches);
   if (selection) {
     await git.run('checkout ' + selection);
+    await git.run('status');
   }
 }
 

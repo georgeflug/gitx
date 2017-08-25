@@ -66,8 +66,8 @@ function getRenameForConflict(allStashedFiles, conflictFile) {
 }
 
 module.exports = {
-  command: 'pullLatest',
-  aliases: ['pulllatest', 'pull-latest'],
+  command: 'pull',
+  aliases: [],
   describe: 'Pull the latest code into the current branch even if has conflicts with the working changes',
   handler: pullLatest
 };

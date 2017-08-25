@@ -110,6 +110,7 @@ Feature: State
     # Loading a state will reset the branch head if the state was on an earlier version
     # of the branch. However, if the newest version of the branch only exists locally,
     # this will cause the newest commits to be lost, so instead it fails to load the state.
+    # TODO: decide how to handle this automatically so that 'state load' never fails
     Given I append the data 'firstState' to the file 'file1'
     And I call 'state save'
 
