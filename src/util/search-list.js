@@ -6,7 +6,7 @@
 
 const process = require('process');
 const readline = require('readline');
-const AnsiBuffer = require('./ansibuffer');
+const AnsiBuffer = require('./ansi-buffer');
 
 const searchText = 'Search:';
 const indicator = '> ';
@@ -133,7 +133,7 @@ function defaultFilter(source, query) {
 
 function printList() {
   buffer.moveNextLine()
-  .clearDown();
+    .clearDown();
 
   const max = Math.min(filteredList.length - topItemIndex, maxLength);
   for (let i = 0; i < max; i++) {
@@ -146,15 +146,15 @@ function printList() {
 
 function redrawIndicator(direction) {
   buffer
-  .savePosition()
-  .moveDown(selectedIndex - direction + 1)
-  .moveFarLeft()
-  .add(' ')
-  .move(0, direction)
-  .moveFarLeft()
-  .add(indicator)
-  .restorePosition()
-  .dump();
+    .savePosition()
+    .moveDown(selectedIndex - direction + 1)
+    .moveFarLeft()
+    .add(' ')
+    .move(0, direction)
+    .moveFarLeft()
+    .add(indicator)
+    .restorePosition()
+    .dump();
 }
 
 function hardExit() {
@@ -169,10 +169,10 @@ function softExit(result) {
 
 function quit() {
   buffer
-  .clearDown()
-  .clearLine()
-  .moveFarLeft()
-  .dump();
+    .clearDown()
+    .clearLine()
+    .moveFarLeft()
+    .dump();
   if (process.stdin.isTTY) {
     process.stdin.setRawMode(oldTtyIsRaw);
   }

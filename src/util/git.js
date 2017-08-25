@@ -13,7 +13,7 @@ const readOnlyCommands = [
   'status'
 ];
 
-const stack = [];
+let stack = [];
 
 async function runGit(gitArgs, opts = {}) {
   stack.push(gitArgs);
@@ -53,15 +53,21 @@ function execGit(gitArgs, execOpts) {
       } else {
         console.log();
         console.log('Failed to run command. Here\'s what we were doing:');
-        for (let i = 0; i < stack.length; i++) {
+        for (let i = 0; i < stack.length - 1; i++) {
           console.log('  git ' + stack[i]);
         }
+        console.log('* git ' + stack[stack.length - 1]);
         reject(err);
       }
     });
   });
 }
 
+function resetStack() {
+  stack = [];
+}
+
 module.exports = {
-  run: runGit,
+  reset: resetStack,
+  run: runGit
 };

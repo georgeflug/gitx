@@ -4,7 +4,8 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "test": "jasmine"
+    "test": "cucumberjs",
+    "ftest": "cucumberjs --tags @focus,~@ignore"
   },
   "author": "georgeflug",
   "license": "MIT",
@@ -15,8 +16,7 @@
     "yargs-promise": "1.1.0"
   },
   "devDependencies": {
-    "jasmine": "2.7.0",
-    "mocha": "3.5.0",
+    "cucumber": "3.0.0",
     "must": "0.13.4",
     "rimraf": "2.6.1"
   }

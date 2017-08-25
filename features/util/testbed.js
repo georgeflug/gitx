@@ -78,6 +78,7 @@ function resolve(file) {
 }
 
 module.exports = {
+  add: addFile,
   cleanup: eraseRepos,
   exec: exec,
   init: initRepos,
