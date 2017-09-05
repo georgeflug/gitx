@@ -42,7 +42,7 @@ manually fix any merge conflicts.
 
 This merges the latest version of a branch into your current branch.
 Unlike ```git merge <branch>```, you will get the latest commits even
-even if your local copy is behind the remote.
+if your local copy is behind the remote.
 
 #### git x undo
 
@@ -59,6 +59,8 @@ behind the remote.
 
 Node.js must be installed. Probably version 7.6 or higher.
 
+Requires git v1.7 or higher.
+
 ## Installing
 
 TODO: need some sort of automatic installation
@@ -69,13 +71,18 @@ npm install
 ```
 
 Next, set up an alias to GitX:
-
 ```
-git config --global alias.x '!node /path/to/gitx/index'
+# mac/linux
+git config --global alias.x '!node /path/to/gitx/src/index'
+
+# windows cmd
+git config --global alias.x "!node /c/path/to/gitx/src/index"
+
+# git bash on windows using MinTTY terminal (it's the default terminal for newer git installations)
+git config --global alias.x "!winpty node /c/path/to/gitx/src/index"
 ```
 
 Then run a command:
-
 ```
 git x checkout
 ```

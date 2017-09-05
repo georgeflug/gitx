@@ -42,7 +42,9 @@ AnsiBuffer.prototype.moveUp = function (y) {
 };
 
 AnsiBuffer.prototype.moveDown = function (y) {
-  this.buffer += ansiControl + y + 'B';
+  // use '\n' instead of "ansiControl + y + 'B'" because
+  // the 'B' escape code fails on Windows
+  this.buffer += '\n'.repeat(y);
   return this;
 };
 
