@@ -28,7 +28,9 @@ AnsiBuffer.prototype.moveFarLeft = function () {
 };
 
 AnsiBuffer.prototype.moveNextLine = function () {
-  this.buffer += ansiEscape + 'E';
+  // use '\n' instead of "ansiEscape + 'E'" because
+  // the 'E' escape code fails on Windows
+  this.buffer += '\n';
   return this;
 };
 
@@ -42,9 +44,7 @@ AnsiBuffer.prototype.moveUp = function (y) {
 };
 
 AnsiBuffer.prototype.moveDown = function (y) {
-  // use '\n' instead of "ansiControl + y + 'B'" because
-  // the 'B' escape code fails on Windows
-  this.buffer += '\n'.repeat(y);
+  this.buffer += ansiControl + y + 'B';
   return this;
 };
 
