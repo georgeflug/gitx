@@ -6,8 +6,11 @@ const searchList = require('../util/search-list');
 async function interactiveCheckout() {
   const branches = await git.run('branch --all --sort=-committerdate', {silent: true});
   const parsedBranches = parseBranches(branches);
-  const selection = await searchList.prompt(parsedBranches);
+  let selection = await searchList.prompt(parsedBranches);
   if (selection) {
+    if (selection.startsWith('remotes')) {
+      selection = selection.slice(8);
+    }
     await git.run('checkout ' + selection);
     await git.run('status');
   }
