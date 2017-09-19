@@ -11,6 +11,10 @@ async function interactiveCheckout() {
     if (selection.startsWith('remotes')) {
       selection = selection.slice(8);
     }
+    // TODO: look up list of remote names
+    if (selection.startsWith('origin')) {
+      selection = selection.slice(7);
+    }
     await git.run('checkout ' + selection);
     await git.run('status');
   }
